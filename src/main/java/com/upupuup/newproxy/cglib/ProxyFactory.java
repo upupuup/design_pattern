@@ -28,13 +28,17 @@ public class ProxyFactory implements MethodInterceptor {
     }
 
     public Object getProxyInstance() {
-        // 创建工具类
+        /**
+         * Enhancer是一个非常重要的类,它允许为非接口类型创建一个JAVA代理,
+         * Enhancer动态的创建给定类的子类并且拦截代理类的所有的方法，
+         * 和JDK动态代理不一样的是不管是接口还是类它都能正常工作
+         */
         Enhancer enhancer = new Enhancer();
-        // 设置父类
+        // 设置父类，告诉Cglib，生成的子类要继承哪个类
         enhancer.setSuperclass(target.getClass());
-        // 设置回调函数,调用自己
+        // 设置回调函数，使生成的代理类对象在调用被代理类方法时，都去调用下面的intercept方法
         enhancer.setCallback(new ProxyFactory(target));
-        // 创建子类对象，即代理对象
+        // 创建子类对象，即代理对象。做的工作：1.生成源代码。2.编译成class文件。3.加载到JVM中，生成并返回被代理对象等等。
         return enhancer.create();
     }
 
@@ -47,6 +51,7 @@ public class ProxyFactory implements MethodInterceptor {
      * @return
      * @throws Throwable
      */
+    @Override
     public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("cglib start");
         System.out.println("打印日志：方法" + method.getName() + "执行了");
