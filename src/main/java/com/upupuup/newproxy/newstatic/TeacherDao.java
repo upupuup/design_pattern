@@ -8,8 +8,7 @@ package com.upupuup.newproxy.newstatic;
  */
 public class TeacherDao implements ITeacherDao {
 
-	@Override
 	public void teach() {
-		System.out.println("老师在上课");
+		System.out.println("通知老师上课");
 	}
 }

@@ -5,6 +5,7 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
+import java.util.Date;
 
 /**
  * @Author:upupupuup
@@ -48,8 +49,10 @@ public class ProxyFactory implements MethodInterceptor {
      */
     public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         System.out.println("cglib start");
+        System.out.println("打印日志：方法" + method.getName() + "执行了");
         Object invoke = method.invoke(target, args);
         System.out.println("cglib end");
         return invoke;
+
     }
 }

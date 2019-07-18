@@ -9,6 +9,6 @@ package com.upupuup.newproxy.newjdkProxy;
 public class TeacherDao implements ITeacherDao {
 	@Override
 	public void teach() {
-		System.out.println("teacher in class");
+		System.out.println("通知老师上课");
 	}
 }
