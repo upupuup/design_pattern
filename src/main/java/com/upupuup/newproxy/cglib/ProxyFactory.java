@@ -33,17 +33,17 @@ public class ProxyFactory implements MethodInterceptor {
         // 设置父类
         enhancer.setSuperclass(target.getClass());
         // 设置回调函数,调用自己
-        enhancer.setCallback(this);
+        enhancer.setCallback(new ProxyFactory(target));
         // 创建子类对象，即代理对象
         return enhancer.create();
     }
 
     /**
      * 调用目标对象的方法
-     * @param object
-     * @param method
-     * @param args
-     * @param methodProxy
+     * @param object cglib生成的代理对象
+     * @param method 被代理对象方法
+     * @param args 方法入参
+     * @param methodProxy 代理方法
      * @return
      * @throws Throwable
      */

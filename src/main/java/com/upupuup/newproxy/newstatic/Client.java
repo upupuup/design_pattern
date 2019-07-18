@@ -9,10 +9,13 @@ package com.upupuup.newproxy.newstatic;
 public class Client {
 	public static void main(String[] args) {
 		// 创建目标对象
-		TeacherDao teacherDao = new TeacherDao();
+		ITeacherDao teacherDao = new TeacherDao();
+		teacherDao.teach();
 
 		// 创建代理对象
 		TeacherDaoProxy teacherDaoProxy = new TeacherDaoProxy(teacherDao);
+
+		// 调用代理对象方法
 		teacherDaoProxy.teach();
 	}
 }
