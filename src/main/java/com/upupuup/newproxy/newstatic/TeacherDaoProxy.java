@@ -7,11 +7,15 @@ package com.upupuup.newproxy.newstatic;
  * @Description: 代理对象，静态代理
  */
 public class TeacherDaoProxy implements ITeacherDao{
-
-	// 被代理的对象
+	/**
+	 * 被代理的对象
+ 	 */
 	private ITeacherDao iTeacherDao;
 
-	// 构造方法
+	/**
+	 * 构造方法
+ 	 * @param iTeacherDao
+	 */
 	public TeacherDaoProxy(ITeacherDao iTeacherDao) {
 		this.iTeacherDao = iTeacherDao;
 	}

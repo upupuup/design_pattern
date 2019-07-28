@@ -14,5 +14,6 @@ public class Client {
         TeacherDao proxyInstance = (TeacherDao) new ProxyFactory(teacherDao).getProxyInstance();
         // 执行代理对象，intercept方法，从而实现对目标方法的调用
         proxyInstance.teach();
+        // proxyInstance.rest();
     }
 }

@@ -8,6 +8,10 @@ package com.upupuup.newproxy.cglib;
  */
 public class TeacherDao {
     public void teach() {
-        System.out.println("cglib代理");
+        System.out.println("通知老师上课了");
     }
+
+	public void rest() {
+		System.out.println("通知老师休息");
+	}
 }

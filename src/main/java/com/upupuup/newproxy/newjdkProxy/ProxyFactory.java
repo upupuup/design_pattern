@@ -38,7 +38,6 @@ public class ProxyFactory {
 		 *                                           // h: 事件处理
 		 */
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), new InvocationHandler() {
-			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 				System.out.println("JDK代理开始");
 				// 使用反射机制调用目标对象
